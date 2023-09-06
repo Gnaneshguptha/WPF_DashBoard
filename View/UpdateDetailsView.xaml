@@ -1,0 +1,88 @@
+﻿<UserControl x:Class="LoginForm.View.UpdateDetailsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LoginForm.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+              xmlns:viewModel="clr-namespace:LoginForm.ViewModel">
+
+    <UserControl.DataContext>
+        <viewModel:UpdateViewModel/>
+    </UserControl.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <Border 
+            Background="#1f0c5e"
+            CornerRadius="21"
+            >
+            <TextBlock Text="Update Details" VerticalAlignment="Center" 
+                       HorizontalAlignment="Center"
+                       FontSize="40"
+                       FontWeight="DemiBold"
+                       Foreground="White"/>
+        </Border>
+
+        <Border Grid.Row="1"
+              Background="#2b1182"
+            CornerRadius="21">
+
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0,40,0,0">
+                <Border CornerRadius="18" Padding="10" Background="#6339ed" BorderThickness="1">
+                    <Border.Effect>
+                        <DropShadowEffect ShadowDepth="30" Direction="225" Color="Black" Opacity="0.5"/>
+                    </Border.Effect>
+                    <StackPanel Margin="10" >
+                        <!-- First name -->
+                        <WrapPanel Orientation="Horizontal" Margin="0,20,0,0">
+                            <TextBlock Text="First name     " FontSize="18" Foreground="White"/>
+                            <TextBox Width="190" BorderThickness="0,0,0,1" 
+                                     BorderBrush="White" Background="Transparent"
+                                     Text="{Binding UserDetail.FirstName,Mode=TwoWay}" 
+                                     Foreground="White"
+                                     FontSize="18"/>
+                        </WrapPanel>
+
+                        <!-- Last name -->
+                        <WrapPanel Orientation="Horizontal" Margin="0,20,0,0">
+                            <TextBlock Text="Last name     " FontSize="18" Foreground="White"/>
+                            <TextBox Width="190" BorderThickness="0,0,0,1" BorderBrush="White" Background="Transparent"
+                                     Text="{Binding UserDetail.LastName,Mode=TwoWay}" 
+                                     Foreground="White"
+                                     FontSize="18"/>
+                        </WrapPanel>
+
+                        <!-- User name -->
+                        <WrapPanel Orientation="Horizontal" Margin="0,20,0,0">
+                            <TextBlock Text="User name    " FontSize="18" Foreground="White"/>
+                            <TextBox Width="190" BorderThickness="0,0,0,1" BorderBrush="White" Background="Transparent"
+                                     Text="{Binding UserDetail.UserName,Mode=TwoWay}" 
+                                     Foreground="White"
+                                     FontSize="18"/>
+                        </WrapPanel>
+
+                        <!-- Email -->
+                        <WrapPanel Orientation="Horizontal" Margin="0,20,0,0">
+                            <TextBlock Text="Email            " FontSize="18" Foreground="White"/>
+                            <TextBox Width="190" BorderThickness="0,0,0,1" BorderBrush="White" Background="Transparent"
+                                     Text="{Binding UserDetail.Email,Mode=TwoWay}" 
+                                     Foreground="White"
+                                     FontSize="18"/>
+                        </WrapPanel>
+                        <Button Margin="0,30,0,0"
+                                Width="130" Style="{StaticResource Dashboardbutton  }"
+                                Foreground="White"
+                                FontSize="18"
+                                Cursor="Arrow"
+                                Command="{Binding UpdateCommand}">Update</Button>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>
